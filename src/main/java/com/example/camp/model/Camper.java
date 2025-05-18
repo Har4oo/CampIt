@@ -6,6 +6,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
+import java.time.Period;
+
 
 @Getter
 @Setter
@@ -28,6 +31,17 @@ public class Camper {
     private String team;
 
     @Column
-    private String[] test;
+    private LocalDate birthDate;
+
+    @Column
+    private boolean isMale;
+
+    private String role;
+
+    @Transient
+    public int getAge() {
+        if (birthDate == null) return 0;
+        return Period.between(birthDate, LocalDate.now()).getYears();
+    }
 
 }

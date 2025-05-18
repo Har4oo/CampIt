@@ -22,4 +22,7 @@ public class Team {
 
     @Column
     private String teamColour;
+
+    @Column
+    private int teamPoints;
 }
