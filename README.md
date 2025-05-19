@@ -8,6 +8,7 @@ The goal is to create more interactive environment for the children in order to 
 
 ### Extra ideas
 - "The Big Game"
+
 CampIt may be included in the game which gives the most points for a team. This game makes the whole camp, all the people from it, to walk/run around the town where the camp is in order to achieve checkpoints which give points. Some sort of free map API could be included to show "checkpoints", "extra side quests" and etc.
 
 
