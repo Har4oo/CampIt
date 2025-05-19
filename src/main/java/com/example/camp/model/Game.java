@@ -27,8 +27,4 @@ public class Game {
     @OneToMany(mappedBy = "game", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<TeamScores> teamScores = new ArrayList<>();
 
-    public static void getTeamPoints(){
-
-    }
-
 }

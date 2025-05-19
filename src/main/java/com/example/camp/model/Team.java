@@ -6,6 +6,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Table(name = "teams")
 @Getter
 @Setter
@@ -25,4 +28,7 @@ public class Team {
 
     @Column
     private int teamPoints;
+
+    @OneToMany(mappedBy = "team", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<TeamScores> teamScores = new ArrayList<>();
 }
