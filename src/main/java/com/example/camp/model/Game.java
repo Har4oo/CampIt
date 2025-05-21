@@ -25,6 +25,6 @@ public class Game {
     private String description;
 
     @OneToMany(mappedBy = "game", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<TeamScores> teamScores = new ArrayList<>();
+    private List<TeamScore> teamScores = new ArrayList<>();
 
 }

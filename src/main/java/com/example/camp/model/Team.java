@@ -30,5 +30,5 @@ public class Team {
     private int teamPoints;
 
     @OneToMany(mappedBy = "team", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<TeamScores> teamScores = new ArrayList<>();
+    private List<TeamScore> teamScores = new ArrayList<>();
 }

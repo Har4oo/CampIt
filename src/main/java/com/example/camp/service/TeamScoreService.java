@@ -1,13 +1,13 @@
 package com.example.camp.service;
 
-import com.example.camp.repository.TeamScoreRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.camp.model.TeamScore;
 
-public class TeamScoreService {
-    private final TeamScoreRepository teamScoreRepository;
+import java.util.List;
 
-    @Autowired
-    public TeamScoreService(TeamScoreRepository teamScoreRepository) {
-        this.teamScoreRepository = teamScoreRepository;
-    }
+public interface TeamScoreService {
+    List<TeamScore> getTeamScores();
+    TeamScore getTeamscore(Long id);
+    TeamScore createTeamScore(TeamScore teamScore);
+    TeamScore updateTeamScore(TeamScore teamScore, Long id);
+    void deleteTeamScore(Long id);
 }

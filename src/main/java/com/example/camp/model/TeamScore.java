@@ -1,6 +1,5 @@
 package com.example.camp.model;
 
-import com.example.camp.model.Game;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,7 +12,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class TeamScores {
+public class TeamScore {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

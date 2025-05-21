@@ -1,15 +1,13 @@
 package com.example.camp.service;
 
-import com.example.camp.repository.GameRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import com.example.camp.model.Game;
 
-@Service
-public class GameService {
-    private final GameRepository gameRepository;
+import java.util.List;
 
-    @Autowired
-    public GameService(GameRepository gameRepository) {
-        this.gameRepository = gameRepository;
-    }
+public interface GameService {
+    List<Game> getGames();
+    Game getGame(Long id);
+    Game createGame(Game game);
+    Game updateGame(Game game, Long id);
+    void deleteGame(Long id);
 }

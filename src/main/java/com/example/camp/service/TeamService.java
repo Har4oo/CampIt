@@ -1,15 +1,13 @@
 package com.example.camp.service;
 
-import com.example.camp.repository.CamperRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import com.example.camp.model.Team;
 
-@Service
-public class TeamService {
-    private final CamperRepository camperRepository;
+import java.util.List;
 
-    @Autowired
-    public TeamService(CamperRepository camperRepository) {
-        this.camperRepository = camperRepository;
-    }
+public interface TeamService {
+    List<Team> getTeams();
+    Team getTeam(Long id);
+    Team createTeam(Team team);
+    Team updateTeam(Team team, Long id);
+    void deleteTeam(Long id);
 }
