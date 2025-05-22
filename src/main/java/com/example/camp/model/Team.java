@@ -10,10 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Table(name = "teams")
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity
 public class Team {
     @Id
@@ -31,4 +27,55 @@ public class Team {
 
     @OneToMany(mappedBy = "team", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<TeamScore> teamScores = new ArrayList<>();
+
+    public Team(Long id, String name, String teamColour, int teamPoints, List<TeamScore> teamScores) {
+        this.id = id;
+        this.name = name;
+        this.teamColour = teamColour;
+        this.teamPoints = teamPoints;
+        this.teamScores = teamScores;
+    }
+
+    public Team() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getTeamColour() {
+        return teamColour;
+    }
+
+    public void setTeamColour(String teamColour) {
+        this.teamColour = teamColour;
+    }
+
+    public int getTeamPoints() {
+        return teamPoints;
+    }
+
+    public void setTeamPoints(int teamPoints) {
+        this.teamPoints = teamPoints;
+    }
+
+    public List<TeamScore> getTeamScores() {
+        return teamScores;
+    }
+
+    public void setTeamScores(List<TeamScore> teamScores) {
+        this.teamScores = teamScores;
+    }
 }

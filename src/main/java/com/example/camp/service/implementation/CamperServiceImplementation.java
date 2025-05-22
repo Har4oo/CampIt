@@ -26,21 +26,35 @@ public class CamperServiceImplementation implements CamperService {
 
     @Override
     public Camper getCamper(Long id) {
+        System.out.println("Listing camper with id: "+id);
         return camperRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid id " + id));
     }
 
     @Override
     public Camper createCamper(Camper camper) {
-        return null;
+        System.out.println("Creating camper: " + camper.getFirstName() + " " + camper.getLastName());
+        return camperRepository.save(camper);
     }
 
     @Override
     public Camper updateCamper(Camper camper, Long id) {
-        return null;
+        Camper existingCamper = camperRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Camper not found with id: " + id));
+
+        System.out.println("Updating camper with id: "+existingCamper.getId());
+
+        existingCamper.setFirstName(camper.getFirstName());
+        existingCamper.setLastName(camper.getLastName());
+        existingCamper.setBirthDate(camper.getBirthDate());
+        existingCamper.setTeam(camper.getTeam());
+        existingCamper.setRole(camper.getRole());
+        existingCamper.setMale(camper.isMale());
+
+        return camperRepository.save(existingCamper);
     }
 
     @Override
     public void deleteCamper(Long id) {
-
+        camperRepository.deleteById(id);
     }
 }
