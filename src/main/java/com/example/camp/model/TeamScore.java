@@ -14,11 +14,13 @@ public class TeamScore {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "game_id", nullable = false)
     private Game game;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    // FETCH TYPE MUST BE EAGER  FOR EVERYONE ! Changing to EAGER worked because it fetched the actual data, not a proxy,
+    // and Jackson only knows how to serialize real objects — not lazy Hibernate proxies.
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "team_id", nullable = false)
     private Team team;
 
