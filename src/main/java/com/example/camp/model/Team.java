@@ -28,12 +28,16 @@ public class Team {
     @OneToMany(mappedBy = "team", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<TeamScore> teamScores = new ArrayList<>();
 
-    public Team(Long id, String name, String teamColour, int teamPoints, List<TeamScore> teamScores) {
+    @OneToMany(mappedBy = "team", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Camper> campers = new ArrayList<>();
+
+    public Team(Long id, String name, String teamColour, int teamPoints, List<TeamScore> teamScores, List<Camper> campers) {
         this.id = id;
         this.name = name;
         this.teamColour = teamColour;
         this.teamPoints = teamPoints;
         this.teamScores = teamScores;
+        this.campers = campers;
     }
 
     public Team() {

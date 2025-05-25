@@ -38,8 +38,7 @@ public class CamperServiceImplementation implements CamperService {
 
     @Override
     public Camper updateCamper(Camper camper, Long id) {
-        Camper existingCamper = camperRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Camper not found with id: " + id));
+        Camper existingCamper = camperRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid id " + id));
 
         System.out.println("Updating camper with id: "+existingCamper.getId());
 

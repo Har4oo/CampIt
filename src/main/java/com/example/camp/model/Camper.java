@@ -8,6 +8,8 @@ import lombok.Setter;
 
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -23,8 +25,9 @@ public class Camper {
     @Column
     private String lastName;
 
-    @Column
-    private String team;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "team_id", nullable = false)
+    private Team team;
 
     @Column
     private LocalDate birthDate;
@@ -32,9 +35,10 @@ public class Camper {
     @Column
     private boolean isMale;
 
+    @Column
     private String role;
 
-    public Camper(Long id, String firstName, String lastName, String team, LocalDate birthDate, boolean isMale, String role) {
+    public Camper(Long id, String firstName, String lastName, Team team, LocalDate birthDate, boolean isMale, String role) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -71,13 +75,6 @@ public class Camper {
         this.lastName = lastName;
     }
 
-    public String getTeam() {
-        return team;
-    }
-
-    public void setTeam(String team) {
-        this.team = team;
-    }
 
     public LocalDate getBirthDate() {
         return birthDate;
@@ -101,6 +98,14 @@ public class Camper {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public Team getTeam() {
+        return team;
+    }
+
+    public void setTeam(Team team) {
+        this.team = team;
     }
 
     @Transient
