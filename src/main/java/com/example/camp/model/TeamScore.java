@@ -15,13 +15,13 @@ public class TeamScore {
     private Long id;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "game_id", nullable = false)
+    @JoinColumn(name = "game_id")
     private Game game;
 
     // FETCH TYPE MUST BE EAGER  FOR EVERYONE ! Changing to EAGER worked because it fetched the actual data, not a proxy,
     // and Jackson only knows how to serialize real objects — not lazy Hibernate proxies.
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "team_id", nullable = false)
+    @JoinColumn(name = "team_id")
     private Team team;
 
     @Column

@@ -82,4 +82,12 @@ public class Team {
     public void setTeamScores(List<TeamScore> teamScores) {
         this.teamScores = teamScores;
     }
+
+    public List<Camper> getCampers() {
+        return campers;
+    }
+
+    public void setCampers(List<Camper> campers) {
+        this.campers = campers;
+    }
 }
