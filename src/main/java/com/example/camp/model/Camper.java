@@ -1,15 +1,8 @@
 package com.example.camp.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 import java.time.LocalDate;
 import java.time.Period;
-import java.util.ArrayList;
-import java.util.List;
 
 
 @Entity
@@ -35,12 +28,12 @@ public class Camper {
     private LocalDate birthDate;
 
     @Column
-    private boolean isMale;
+    private Boolean isMale;
 
     @Column
     private String role;
 
-    public Camper(Long id, String firstName, String lastName, Team team, LocalDate birthDate, boolean isMale, String role) {
+    public Camper(Long id, String firstName, String lastName, Team team, LocalDate birthDate, Boolean isMale, String role) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -86,11 +79,11 @@ public class Camper {
         this.birthDate = birthDate;
     }
 
-    public boolean isMale() {
+    public Boolean getMale() {
         return isMale;
     }
 
-    public void setMale(boolean male) {
+    public void setMale(Boolean male) {
         isMale = male;
     }
 

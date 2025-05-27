@@ -47,7 +47,7 @@ public class CamperServiceImplementation implements CamperService {
         existingCamper.setBirthDate(camper.getBirthDate());
         existingCamper.setTeam(camper.getTeam());
         existingCamper.setRole(camper.getRole());
-        existingCamper.setMale(camper.isMale());
+        existingCamper.setMale(camper.getMale());
 
         return camperRepository.save(existingCamper);
     }
