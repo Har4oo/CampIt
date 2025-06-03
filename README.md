@@ -8,8 +8,10 @@ The goal is to create more interactive environment for the children in order to 
 
 ### Extra ideas
 - "The Big Game"
-
 CampIt may be included in the game which gives the most points for a team. This game makes the whole camp, all the people from it, to walk/run around the town where the camp is in order to achieve checkpoints which give points. Some sort of free map API could be included to show "checkpoints", "extra side quests" and etc.
+
+- Topic attachments
+Since on these specific camps different topics are discussed, advanced information to the different teams' goals can be included. For example, a team has to prepare a teathre like game in which they have a topic. This lets the information around the camp to be shared faster without the need of looking for it from the team's leader
 
 
 ### Technology planned
