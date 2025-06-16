@@ -2,7 +2,9 @@ package com.example.camp.view;
 
 import com.example.camp.model.Camper;
 import com.example.camp.service.CamperService;
+import com.example.camp.service.TeamService;
 import com.example.camp.view.camper.CamperView;
+import com.example.camp.view.camper.TeamView;
 import com.vaadin.flow.component.Text;
 import com.vaadin.flow.component.applayout.DrawerToggle;
 import com.vaadin.flow.component.button.Button;
@@ -27,23 +29,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class MainView extends AppLayout {
     private final VerticalLayout contentArea = new VerticalLayout();
     private final CamperService camperService;
+    private final TeamService teamService;
 
     @Autowired
-    public MainView(CamperService camperService) {
+    public MainView(CamperService camperService, TeamService teamService) {
         this.camperService = camperService;
+        this.teamService = teamService;
         createHeader();
         createDrawer();
-        setContent(contentArea); // Display area
+        setContent(contentArea);
     }
 
     private void createHeader() {
-        H1 title = new H1("CampIt");
-        title.getStyle()
-                .set("font-size", "var(--lumo-font-size-l)")
-                .set("margin", "0");
 
         DrawerToggle toggle = new DrawerToggle();
-        HorizontalLayout header = new HorizontalLayout(toggle, title);
+        HorizontalLayout header = new HorizontalLayout(toggle);
         header.setDefaultVerticalComponentAlignment(FlexComponent.Alignment.CENTER);
 
         addToNavbar(header);
@@ -51,8 +51,9 @@ public class MainView extends AppLayout {
 
     private void createDrawer() {
         Button campersButton = new Button("Campers", e -> showCampers());
+        Button teamsButton = new Button("Teams", e -> showTeams());
 
-        VerticalLayout navLayout = new VerticalLayout(campersButton);
+        VerticalLayout navLayout = new VerticalLayout(campersButton, teamsButton);
         navLayout.setPadding(true);
         navLayout.setSpacing(true);
 
@@ -66,10 +67,10 @@ public class MainView extends AppLayout {
         contentArea.add(new CamperView(camperService)); // You must change CamperView to not use @Route
     }
 
-//    private void showTeams() {
-//        contentArea.removeAll();
-//        contentArea.add(new TeamView()); // Same here
-//    }
+    private void showTeams() {
+        contentArea.removeAll();
+        contentArea.add(new TeamView(teamService)); // Same here
+    }
 //
 //    private void showGames() {
 //        contentArea.removeAll();
