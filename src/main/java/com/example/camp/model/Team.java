@@ -19,7 +19,7 @@ public class Team {
     private String teamColour;
 
     @Column
-    private int teamPoints;
+    private Double teamPoints;
 
     @OneToMany(mappedBy = "team", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<TeamScore> teamScores = new ArrayList<>();
@@ -27,7 +27,7 @@ public class Team {
     @OneToMany(mappedBy = "team", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Camper> campers = new ArrayList<>();
 
-    public Team(Long id, String name, String teamColour, int teamPoints, List<TeamScore> teamScores, List<Camper> campers) {
+    public Team(Long id, String name, String teamColour, Double teamPoints, List<TeamScore> teamScores, List<Camper> campers) {
         this.id = id;
         this.name = name;
         this.teamColour = teamColour;
@@ -63,11 +63,11 @@ public class Team {
         this.teamColour = teamColour;
     }
 
-    public int getTeamPoints() {
+    public Double getTeamPoints() {
         return teamPoints;
     }
 
-    public void setTeamPoints(int teamPoints) {
+    public void setTeamPoints(Double teamPoints) {
         this.teamPoints = teamPoints;
     }
 
