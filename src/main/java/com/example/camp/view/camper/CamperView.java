@@ -20,7 +20,7 @@ public class CamperView extends VerticalLayout {
     private final Grid<Camper> grid = new Grid<>(Camper.class);
 
 
-    @Autowired
+
     public CamperView(CamperService camperService) {
         this.camperService = camperService;
 
@@ -53,6 +53,9 @@ public class CamperView extends VerticalLayout {
         DatePicker birthDatePicker = new DatePicker("Birth Date");
         Checkbox maleCheckbox = new Checkbox("Male");
         ComboBox<String> roleBox = new ComboBox<>("Role");
+        roleBox.addCustomValueSetListener(event -> {
+            roleBox.setValue(event.getDetail()); //Allowing to create custom values instead of having only camper and leader - https://vaadin.com/forum/t/combobox-with-custom-values-allowed-fails-validation/163235/5
+        });
         roleBox.setItems("camper", "leader");
 
         if (camperToEdit != null) {
@@ -102,6 +105,9 @@ public class CamperView extends VerticalLayout {
         DatePicker birthDatePicker = new DatePicker("Birth Date");
         Checkbox maleCheckbox = new Checkbox("Male");
         ComboBox<String> roleBox = new ComboBox<>("Role");
+        roleBox.addCustomValueSetListener(event -> {
+            roleBox.setValue(event.getDetail());
+        });
         roleBox.setItems("camper", "leader");
 
         Button saveButton = new Button("Save", event -> {
