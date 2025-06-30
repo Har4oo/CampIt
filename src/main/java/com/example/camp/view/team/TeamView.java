@@ -1,24 +1,22 @@
-package com.example.camp.view.camper;
+package com.example.camp.view.team;
 
-import com.example.camp.model.Camper;
 import com.example.camp.model.Team;
 import com.example.camp.service.TeamService;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.card.Card;
 import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.grid.Grid;
+import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.NumberField;
 import com.vaadin.flow.component.textfield.TextField;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.awt.*;
-
 public class TeamView extends VerticalLayout {
     private final TeamService teamService;
     private final Grid<Team> grid = new Grid<>(Team.class);
 
-    @Autowired
     public TeamView(TeamService teamService) {
         this.teamService = teamService;
 
@@ -28,6 +26,8 @@ public class TeamView extends VerticalLayout {
         //grid.addComponentColumn(this::createActionButtons).setHeader("Actions");
 
         Button addTeamButton = new Button("Add Team", buttonClickEvent -> openTeamDialog());
+
+        orderCards();
 
         add(addTeamButton,grid);
     }
@@ -64,6 +64,10 @@ public class TeamView extends VerticalLayout {
 
     }
     private void orderCards(){
-        Card
+        Card card = new Card();
+
+        card.add(new H1("Test"));
+
+        add(card);
     }
 }
