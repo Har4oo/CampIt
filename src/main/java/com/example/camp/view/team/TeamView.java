@@ -58,9 +58,12 @@ public class TeamView extends VerticalLayout {
         });
         Button cancelButton = new Button("Cancel", e -> dialog.close());
 
-        dialog.add(new VerticalLayout(nameField,colourField,pointsField));
+        dialog.add(new VerticalLayout(nameField,colourField,pointsField), new HorizontalLayout(saveButton,cancelButton));
 
         dialog.open();
 
+    }
+    private void orderCards(){
+        Card
     }
 }
