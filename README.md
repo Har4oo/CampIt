@@ -29,3 +29,4 @@ Since on these specific camps different topics are discussed, advanced informati
 - Java 21
 - Spring Boot 3.4.5
 - PostgreSQL 17
+- Vaadin 24:8.0
